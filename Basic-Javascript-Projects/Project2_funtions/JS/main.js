@@ -13,3 +13,4 @@ let x = myFunction(4,2);
 document.write(x)
 
 document.getElementById("demo").style.color = "red";
+
