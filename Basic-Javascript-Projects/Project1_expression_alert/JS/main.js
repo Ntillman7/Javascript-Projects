@@ -13,3 +13,8 @@ document.write(3+4); //writing an expression
 var Sent1="This is the beginning of the string" // defining a variable
 var Sent2=" and this is the end of the string." //defining a variable
 document.write(Sent1+ Sent2) // writing an expression using the defined variables
+
+function myFunction() {
+    var str="You used the button!";
+    document.getElementById ("key_down").innerHTML = str;
+}
