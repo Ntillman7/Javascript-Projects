@@ -4,3 +4,12 @@ function my_first_function() { //defining a funtion
     document.getElementById("click_button").innerHTML = sentence; //creating the expression for the id
 }
 
+
+function myFunction(p1,p2) {
+    return p1*p2;
+}
+
+let x = myFunction(4,2);
+document.write(x)
+
+document.getElementById("demo").style.color = "red";
