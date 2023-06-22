@@ -4,7 +4,7 @@ function my_dictionary() {
         Flavor:"strawberry",
         Brand: "Haribo",
         Packaging: "bagged",
-    };
+    }
     delete Candy.Packaging;
     document.getElementById("dictionary").innerHTML = Candy.Packaging
    
