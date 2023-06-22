@@ -6,5 +6,7 @@ function my_dictionary() {
         Packaging: "bagged",
     };
     delete Candy.Packaging;
-    document.getElementById("dictionary").innerHTML = Candy.Flavor
+    document.getElementById("dictionary").innerHTML = Candy.Packaging
+   
+
 }
