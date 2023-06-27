@@ -59,7 +59,7 @@ function placeXOrO(squareNumber) { //creating function  for putting x or o in a 
     }
 
     function computersTurn() { //fuction that results in random square being chosen by the computer
-        let success="false";
+        let success=false;
         let pickASquare;
         while(!success) {
             pickASquare = String(Math.floor(Math.random() *9));
