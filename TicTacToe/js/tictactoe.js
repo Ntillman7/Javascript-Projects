@@ -1,8 +1,8 @@
-let activePlayer ="X";
+let activePlayer ="X"; //assigning activePlayer as X
 
-let selectedSquares=[];
+let selectedSquares=[]; //defining array
 
-function placeXOrO(squareNumber) {
+function placeXOrO(squareNumber) { //creating function  for putting x or o in a square
     if(!selectedSquares.some(element=>element.includes(squareNumber))) {
         let select = document.getElementById(squareNumber);
         if (activePlayer ==="X") {
@@ -11,9 +11,9 @@ function placeXOrO(squareNumber) {
             select.style.backgroundImage='url("images/o.jpg")';
         }
 
-        function checkWinConditions() {
-            if(arrayIncludes('0X', '1X', '2X')) {drawWinLine(50,100,558,100)}
-            else if (arrayIncludes('3X', '4X', '5X')) {drawWinLine(50,304,558,304)}
+        function checkWinConditions() { //defining a function that parses the selectedSquares array to look for win conditions
+            if(arrayIncludes('0X', '1X', '2X')) {drawWinLine(50,100,558,100)} // drawWinline is functio to draw line across grid if win conditions are met
+            else if (arrayIncludes('3X', '4X', '5X')) {drawWinLine(50,304,558,304)} 
             else if (arrayIncludes('6X', '7X', '8X')) {drawWinLine(50,508,558,508)} 
             else if (arrayIncludes('0X', '3X', '6X')) {drawWinLine(100,50,100,558)}
             else if (arrayIncludes('1X', '4X', '7X')) {drawWinLine(304,50,304,558)}
@@ -29,11 +29,11 @@ function placeXOrO(squareNumber) {
             else if (arrayIncludes('6O', '4O', '2O')) {drawWinLine(100,508,510,90)}
             else if (arrayIncludes('0O', '4O', '8O')) {drawWinLine(100,100,520,520)}
             else if(selectedSquares.length >= 9) {
-                audio('./media/tie1.mp3');
-                setTimeout(function() {resetGame();}, 500);
+                audio('./media/tie1.mp3'); // plays the tie game sound
+                setTimeout(function() {resetGame();}, 500); //.3 seconds before resetGame is called
             }
            
-            function arrayIncludes(squareA, squareB, squareC) {
+            function arrayIncludes(squareA, squareB, squareC) { //defining a function that check if an array includes 3 strings
                 const a=selectedSquares.includes(squareA);
                 const b=selectedSquares.includes(squareB);
                 const c=selectedSquares.includes(squareC);
@@ -42,15 +42,15 @@ function placeXOrO(squareNumber) {
         }
 
 
-        selectedSquares.push(squareNumber + activePlayer);
-        checkWinConditions();
+        selectedSquares.push(squareNumber + activePlayer); //adding concatenated string to the array
+        checkWinConditions(); //calling the funtion to check the win conditions
         if (activePlayer ==="X") {
             activePlayer = "O";
         } else {
             activePlayer="X";
         }
 
-        audio("./media/place1.mp3");
+        audio("./media/place1.mp3"); //plays the placment sound 
         if (activePlayer==="O") {
             disableClick();
             setTimeout(function(){computersTurn();},1000);
@@ -58,7 +58,7 @@ function placeXOrO(squareNumber) {
         return true;
     }
 
-    function computersTurn() {
+    function computersTurn() { //fuction that results in random square being chosen by the computer
         let success="false";
         let pickASquare;
         while(!success) {
@@ -71,17 +71,17 @@ function placeXOrO(squareNumber) {
     }
 }
 
-function disableClick() {
+function disableClick() { //makes the body element temporarily unclickable
     body.style.pointerEvents = 'none';
     setTimeout(function () {body.style.pointerEvents = 'auto';} ,1000);
 }
 
-function audio(audioURL) {
+function audio(audioURL) { //function that allows the audio to be played
     let audio= new Audio(audioURL);
     audio.play();
 }
 
-function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
+function drawWinLine(coordX1, coordY1, coordX2, coordY2) { // function that draws the win line, uses HTML canvas
     const canvas = document.getElementById('win-lines');
     const c = canvas.getContext('2d');
     let x1=coordX1,
@@ -91,7 +91,7 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
         x=x1,
         y=y1;
 
-    function animateLineDrawing() {
+    function animateLineDrawing() { //interacts with canvas to create the animation for the line drawing
         const animationLoop=requestAnimationFrame(animateLineDrawing);
         c.clearRect(0,0,608,608);
         c.beginPath();
@@ -111,19 +111,19 @@ function drawWinLine(coordX1, coordY1, coordX2, coordY2) {
             if (x>= x2 && y<=y2) {cancelAnimationFrame(animationLoop);}
         }    
     }
-    function clear() {
+    function clear() { //clears the canvas of the win line after it is drawn
         const animationLoop = requestAnimationFrame(clear);
         c.clearRect(0,0,608,608);
         cancelAnimationFrame(animationLoop);
     }
 
-    disableClick();
+    disableClick(); // makes it to where you cannot click while sound is playing
     audio('./media/winGame1.mp3');
     animateLineDrawing();
     setTimeout(function () {clear(); resetGame(); }, 1000);
 }
 
-function resetGame() {
+function resetGame() { //resets the game in the case of a tie or a win
     for (let i = 0; i < 9; i++) {
         let square = document.getElementById(String(i));
         square.style.backgroundImage = '';
