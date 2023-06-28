@@ -25,7 +25,6 @@ function getReceipt() { //inistializes the string so it can get passed from func
     console.log("size text1: "+text1);
     console.log("subtotal: $"+runningTotal+".00");
     getTopping(runningTotal, text1);
-    getVegetables(runningTotal, text1);
 };
 
 function getTopping(runningTotal,text1) {
@@ -53,9 +52,7 @@ function getTopping(runningTotal,text1) {
     document.getElementById("showText").innerHTML = text1;
     document.getElementById("totalPrice").innerHTML = "<h3>Total: <strong>$"+
         runningTotal+".00"+"</strong><h3>";
-};
 
-function getVegetables(runningTotal,text1) {
     var vegetableTotal=0;
     var selectedVegetable =[];
     var vegetableArray = document.getElementsByClassName("vegetables");
