@@ -9,7 +9,7 @@ function getReceipt() { //inistializes the string so it can get passed from func
             text1=text1+selectedSize+"<br>";
         }
     }  
-    if (selectedSize ==="Personal Pizza") {
+    if (selectedSize ==="Personal Pizza") { // setting the prices for each size pizza
         sizeTotal=6;
     } else if (selectedSize ==="Small Pizza") {
         sizeTotal = 8;
@@ -20,14 +20,14 @@ function getReceipt() { //inistializes the string so it can get passed from func
     } else if (selectedSize ==="Extra Large Pizza") {
         sizeTotal = 16;
     }
-    runningTotal=sizeTotal;
+    runningTotal=sizeTotal; //defining the running total based on pizza size and what will show in the console
     console.log(selectedSize+"= $"+sizeTotal+".00");
     console.log("size text1: "+text1);
     console.log("subtotal: $"+runningTotal+".00");
     getTopping(runningTotal, text1);
 };
 
-function getTopping(runningTotal,text1) {
+function getTopping(runningTotal,text1) { //defining the function to select toppings and vegetables from the list
     var toppingTotal=0;
     var selectedTopping =[];
     var toppingArray = document.getElementsByClassName("toppings");
@@ -38,13 +38,13 @@ function getTopping(runningTotal,text1) {
             text1=text1+toppingArray[j].value+"<br>";
         }
     }
-    var toppingCount = selectedTopping.length;
+    var toppingCount = selectedTopping.length; //setting that more than one topping will registar to start charging for toppings
     if(toppingCount >1) {
         toppingTotal=(toppingCount-1);
     } else {
         toppingTotal=0;
     }
-    runningTotal = (runningTotal+toppingTotal);
+    runningTotal = (runningTotal+toppingTotal); // adding the topping total price to the running total and what will show in the console
     console.log("total selected topping items: "+toppingCount);
     console.log(toppingCount+" topping - 1 free topping = "+"$"+toppingTotal+".00");
     console.log("topping text1"+text1);
@@ -53,7 +53,7 @@ function getTopping(runningTotal,text1) {
     document.getElementById("totalPrice").innerHTML = "<h3>Total: <strong>$"+
         runningTotal+".00"+"</strong><h3>";
 
-    var vegetableTotal=0;
+    var vegetableTotal=0; // defining the vegetable array and how it will be handled within the function
     var selectedVegetable =[];
     var vegetableArray = document.getElementsByClassName("vegetables");
     for (var k = 0; k < vegetableArray.length; k++) {
@@ -63,13 +63,13 @@ function getTopping(runningTotal,text1) {
             text1=text1+vegetableArray[k].value+"<br>";
         }
     }
-    var vegetableCount = selectedVegetable.length;
+    var vegetableCount = selectedVegetable.length; //setting that after 1 vegetable choice the customer will be charged for every one after
     if(vegetableCount >1) {
         vegetableTotal=(vegetableCount-1);
     } else {
         vegetableTotal=0;
     }
-    runningTotal = (runningTotal+vegetableTotal);
+    runningTotal = (runningTotal+vegetableTotal); //adding the vegetable total to the total price 
     console.log("total selected veggie items: "+vegetableCount);
     console.log(vegetableCount+" veggie - 1 free veggie = "+"$"+vegetableTotal+".00");
     console.log("vegetable text1"+text1);
