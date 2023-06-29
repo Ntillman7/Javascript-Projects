@@ -31,10 +31,8 @@ div {
     font-size: 1.25vw;
 }
  img {
-    border:1px solid black;
-    border-radius: 4px;
     padding: 5px;
-    width:150px;
+    width:100%;
     position: relative;
     
  }
@@ -230,4 +228,9 @@ a {
     left: 10px; 
     right: 10px; 
     bottom: 10px; 
+  }
+
+  .topimage {
+    width:20px;
+    z-index: 1;
   }
