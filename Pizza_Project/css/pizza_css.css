@@ -230,7 +230,13 @@ a {
     bottom: 10px; 
   }
 
-  .topimage {
-    width:20px;
-    z-index: 1;
+  div.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: rgb(211, 233, 208);
+    padding: 10px;
+    font-size: 10px;
+    width: 100%;
+    text-align: center;
   }
