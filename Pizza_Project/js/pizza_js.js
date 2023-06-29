@@ -78,3 +78,34 @@ function getTopping(runningTotal,text1) { //defining the function to select topp
     document.getElementById("totalPrice").innerHTML = "<h3>Total: <strong>$"+
         runningTotal+".00"+"</strong><h3>";
 };
+
+window.addEventListener('DOMContentLoaded', () => {
+    document.body.classList.remove('fade-out');
+});
+
+function validateForm() {
+    let x = document.forms["myForm"]["Phone Number"].value;
+    if ( x== "") {
+        alert("Phone Number must be filled out.");
+        return false;
+    }
+}
+
+function openForm() {
+    document.getElementById("loginForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("loginForm").style.display = "none";
+  }
+
+  $("#slideshow > div:gt(0)").hide();
+
+setInterval(function() { 
+  $('#slideshow > div:first')
+  .fadeOut(1000)
+  .next()
+  .fadeIn(1000)
+  .end()
+  .appendTo('#slideshow');
+}, 3000);

@@ -1,12 +1,23 @@
+html {
+    scroll-behavior: smooth;
+  }
 
 h1 {
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
     color: rgb(28, 77, 28);
+    font-size: 3vw;
 }
 
 body {
     background-color: rgb(200, 219, 176);
+    opacity:1;
+    transition:1s opacity;
+}
+
+body.fade-out {
+    opacity: 0;
+    transition: none;
 }
 
 h3 {
@@ -16,13 +27,22 @@ h3 {
 
 div {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: darkslategrey;
+    color: rgb(18, 32, 32);
+    font-size: 1.25vw;
 }
+ img {
+    border:1px solid black;
+    border-radius: 4px;
+    padding: 5px;
+    width:150px;
+    position: relative;
+    
+ }
 
 #menuBG {
     width: 400px;
     height:470px;
-    margin: 10px auto;
+    margin: 0px auto;
 }
 
 #frmMenu {
@@ -75,3 +95,139 @@ div {
     display:block;
     margin: 25px auto;
 }
+
+ #form_container {
+    border-radius: 5px;
+    background-color: rgb(115, 138, 101);
+    padding: 20px;
+    width: 25%;
+   display: inline-block;
+}
+
+.contact_container {
+    border-radius: 5px;
+    border: 2px solid black;
+    padding: 5px;
+    width: 55%; 
+    text-align: center;
+    background-color: rgb(240, 207, 165);
+    margin: 0px auto;
+    box-sizing: border-box;
+}
+   
+ input[type=submit] {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(105, 101, 101);
+    color: white;
+ } 
+ 
+
+ .open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 150px;
+    animation: mymove 5s;
+ }
+
+ @keyframes mymove {
+        from {top: 0px;}
+        to {top: 500px;}
+}
+
+
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: rgb(145, 121, 121);
+  }
+
+  .form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  /* When the inputs get focus, do something */
+  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+    background-color: #aa4f04;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: rgb(101, 104, 101);
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+
+  @keyframes zoominoutsinglefeatured {
+    0% {
+        transform: scale(1,1);
+    }
+    50% {
+        transform: scale(1.2,1.2);
+    }
+    100% {
+        transform: scale(1,1);
+    }
+}
+
+.pizza {
+	animation: zoominoutsinglefeatured 15s forwards;
+}
+
+a {
+    color: darkslategray;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+}
+
+#slideshow { 
+    margin: 50px auto; 
+    position: relative; 
+    width: 240px; 
+    height: 240px; 
+    padding: 10px; 
+    box-shadow: 0 0 20px rgba(0,0,0,0.4); 
+  }
+  
+  #slideshow > div { 
+    position: absolute; 
+    top: 10px; 
+    left: 10px; 
+    right: 10px; 
+    bottom: 10px; 
+  }

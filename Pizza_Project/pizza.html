@@ -5,12 +5,19 @@
         <meta http-equiv="content-type" content="text/html"; charset="utf-8">
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <link rel="stylesheet" type="text/css" href="./css/pizza_css.css">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 		<script src="./JS/pizza_js.js" defer></script>
     </head>
 
     <body>
+        <script>
+            document.body.classList.add('fade-out');
+        </script>
         <div id="menuBG">
+            <img class="pizza" src="./images/cowboy.jpg" alt="pizza">
             <h1 style="margin:0 0px 0 20px;"> Cowboy Pizza Menu</h1>
+            <a href="#takemetoform">Click here for Special Offers</a>
+
             <input id="btnOrder" type="button" onclick="getReceipt()" value="Place Order">
             <form id="frmMenu" >
                 <div class="menu left">
@@ -45,6 +52,64 @@
                 </div>
             </form>
         </div>
+
+        <br>
+        <br>
+        <br>
+
+        <div class="contact_container">
+            <h2 id="takemetoform">Special Offers</h2>
+            <p>Fill out your contact information to stay updated on special offers!</p>
+                <br>
+                <div id="form_container">
+                <form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+                    <label for="First Name:">First Name:</label>
+                    <input class="contact" type="text" name="First Name" value="">
+                    <label for="Last Name:">Last Name:</label>
+                    <input class="contact" type="text" name="Last Name" value="">
+                    <label for="Email:">Email:</label>
+                    <input class="contact" type="text" name="Email" value="">
+                    <label for="Phone Number:">Phone Number:</label>
+                    <input class="contact" type="text" name="Phone Number" value="">
+                    <br>
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+
+        <button class="open-button" onclick="openForm()">Log In</button>
+
+        <div class="form-popup" id="loginForm">
+            <form action="/action_page.php" class="form-container">
+              <h1>Log in to track your Order!</h1>
+          
+              <label for="email"><b>Email</b></label>
+              <input type="text" placeholder="Enter Email" name="email" required>
+          
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" required>
+          
+              <button type="submit" class="btn">Login</button>
+              <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+          </div>
+
+          <div id="slideshow">
+            <div>
+              <img src="./images/pizza.jpg">
+            </div>
+            <div>
+              <img src="./images/restaurant.jpg">
+            </div>
+            <div>
+                <img src="./images/barn.jpg">
+            </div>
+            <div>
+              Come enjoy our food!
+            </div>
+          </div>
+
     </body>
 </html>
 
