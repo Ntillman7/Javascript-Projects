@@ -27,6 +27,11 @@ function show() {
     html += '</ul>';
 
     document.getElementById('todos').innerHTML = html;
+
+    var closebtns = document.getElementsByClassName("remove"); 
+        for (i = 0; i < closebtns.length; i++) {
+        closebtns[i].addEventListener('click', remove) 
+        };   
 }
 
 document.getElementById('add').addEventListener('click',add);
@@ -42,10 +47,4 @@ function remove() {
 
     return false;
 }
-
-var closebtns = document.getElementsByClassName("remove"); 
-for (i = 0; i < closebtns.length; i++) {
-        closebtns[i].addEventListener('click', remove) 
-    };
-    
 
