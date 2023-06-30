@@ -130,3 +130,7 @@ function resetGame() { //resets the game in the case of a tie or a win
     }
     selectedSquares = [];
 }
+
+function dblclick() {
+    document.getElementById("head").style.color = "purple";
+}
